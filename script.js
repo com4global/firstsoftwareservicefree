@@ -5,6 +5,19 @@ const navMenu = document.querySelector('.nav-menu');
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
+// Highlight active nav link
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    if (link.href === window.location.href) {
+        link.classList.add('active');
+    }
+});
+
+document.querySelectorAll('.nav-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        const parent = trigger.closest('.group');
+        parent.classList.toggle('open');
+    });
+});
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-menu a').forEach(link => {
